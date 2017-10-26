@@ -1,3 +1,4 @@
-.foo {
+.contentArea {
     display: flex;
+    flex-direction: column-reverse;
 }

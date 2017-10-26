@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
 import './ReadablesContentArea.css';
-import { Divider, Segment, List } from 'semantic-ui-react';
-import ReadablesContentPost from './ReadablesContentPost';
+import ReadablesContentPreview from './ReadablesContentPreview.js';
 
-export default class ReadablesContentArea extends Component {  
+
+export default class ReadablesContentArea extends Component {
+
+  componentWillMount() {
+    debugger;
+  }
+  
   render() {
+    /**
+     TODO: There needs to be a way to dynamically populate an array of
+     posts here. Add AND Remove!
+     **/
     return (
-      <List>
-	<ReadablesContentPost></ReadablesContentPost>
-      </List>
+      <div className="contentArea">
+	<ReadablesContentPreview/>
+	<ReadablesContentPreview/>
+	<ReadablesContentPreview/>
+      </div>
     );
   }
 }
