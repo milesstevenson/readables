@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
-import { Header, Menu, Segment, Icon } from 'semantic-ui-react';
 import logo from './logo.svg';
-import './App.css';
+import { Toolbar, ToolbarTitle, ToolbarGroup } from 'material-ui/Toolbar';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class ReadablesHeader extends Component {
-  state = { activeItem: 'top' }
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-  
   render() {
-    const { activeItem } = this.state;
+    const style = {
+      
+    };
     
     return (
-      <Segment inverted>
-	<Menu inverted pointing secondary>
-	  <Menu.Item name='top' active={activeItem === 'top'} onClick={this.handleItemClick}/>
-	  <Menu.Item name='new' active={activeItem === 'new'} onClick={this.handleItemClick}/>
-	  <Menu.Item name='show' active={activeItem === 'show'} onClick={this.handleItemClick}/>
-	  <Menu.Item name='ask' active={activeItem === 'ask'} onClick={this.handleItemClick}/>
-	  <Menu.Item name='jobs' active={activeItem === 'jobs'} onClick={this.handleItemClick}/>
-	  <Menu.Item name='submit' onClick={this.handleItemClick}/>
-	</Menu>
-      </Segment>
+      <Toolbar style={{marginBottom: "20px"}}>
+	  <ToolbarGroup style={{textAlign: "center", margin: "auto"}}>
+	    <ToolbarTitle text="READABLES"/>
+	  </ToolbarGroup>
+	  <ToolbarGroup>
+	    <RaisedButton label="Submit A Post" primary={true}/>
+	  </ToolbarGroup>
+	</Toolbar>
     );
   }
 }
