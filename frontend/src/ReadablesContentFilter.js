@@ -9,15 +9,6 @@ export default class ReadablesContentFilter extends Component {
   
   componentWillMount() {
     const categories = api.getCategories()
-	  .then((response) => {
-	    const contentType = response.headers.get("content-type");
-	    debugger;
-	    if (contentType && contentType.includes("application/json"))
-	    {
-	      return response.json();
-	    }
-	    throw new TypeError("Oops, we haven't got JSON!");
-	  })
 	  .then((results) => {
 	    const { categories } = results;
 	    this.setState({categories: categories});
@@ -30,9 +21,10 @@ export default class ReadablesContentFilter extends Component {
 
   setupCategories() {
     const categories = this.state.categories.map((c) => {
+      const { name } = c;
       return (
-	<ListItem
-	  primaryText={c.name}
+	<ListItem key={name}
+	  primaryText={name}
 	  />
       );
     });

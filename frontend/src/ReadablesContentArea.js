@@ -1,12 +1,35 @@
 import React, { Component } from 'react';
 import './ReadablesContentArea.css';
 import ReadablesContentPreview from './ReadablesContentPreview.js';
-
+import { api } from './api.js';
 
 export default class ReadablesContentArea extends Component {
 
+  state = {
+    posts: []
+  }
+  
   componentWillMount() {
-    debugger;
+    const posts = api.getPosts()
+	  .then((results) => {
+	    this.setState({ posts : results });
+	    debugger;
+	  })
+	  .catch((err) => {
+	    console.log(err);
+	  });
+  }
+
+  setupPosts() {
+    const posts = this.state.posts.map((p) => {
+      debugger;
+      return (
+	<ReadablesContentPreview key={p.id}
+	  postDetails={p}
+	  />
+      );
+    });
+    return posts;
   }
   
   render() {
@@ -16,9 +39,7 @@ export default class ReadablesContentArea extends Component {
      **/
     return (
       <div className="contentArea">
-	<ReadablesContentPreview/>
-	<ReadablesContentPreview/>
-	<ReadablesContentPreview/>
+	{ this.setupPosts() }
       </div>
     );
   }

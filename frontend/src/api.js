@@ -4,7 +4,7 @@ const myHeaders = new Headers({
 });
 const serverUrl = 'http://localhost:3001';
 
-const get = (url) => fetch(`${serverUrl}/${url}`, { headers: myHeaders });
+const get = (url) => fetch(`${serverUrl}/${url}`, { headers: myHeaders }).then((response) => response.json());
 const getCategories = () => get(`categories`);
 const getCategoryPosts = (category) => get(`${category}/posts`);
 const getPosts = () => get(`posts`);

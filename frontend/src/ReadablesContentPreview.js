@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Paper from 'material-ui/Paper';
+import PropTypes from 'prop-types';
 
-export default class ReadablesContentPost extends Component {
+export default class ReadablesContentPreview extends Component {
   render() {
     const style = {
       height: 100,
@@ -20,3 +21,7 @@ export default class ReadablesContentPost extends Component {
     );
   }
 }
+
+ReadablesContentPreview.propTypes = {
+  postDetails: PropTypes.object.isRequired
+};
