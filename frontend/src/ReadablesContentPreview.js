@@ -22,7 +22,7 @@ function ReadablesContentPreview(props) {
   const { classes } = props;
   
   return (
-    <Paper style={classes.paper}>
+    <Paper className={classes.paper}>
       
     </Paper>
   );
