@@ -1,23 +1,31 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import { Toolbar, ToolbarTitle, ToolbarGroup } from 'material-ui/Toolbar';
-import RaisedButton from 'material-ui/RaisedButton';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import Button from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
+import { withStyles } from 'material-ui/styles';
 
-export default class ReadablesHeader extends Component {
-  render() {
-    const style = {
-      
-    };
-    
-    return (
-      <Toolbar style={{marginBottom: "20px"}}>
-	  <ToolbarGroup style={{textAlign: "center", margin: "auto"}}>
-	    <ToolbarTitle text="READABLES"/>
-	  </ToolbarGroup>
-	  <ToolbarGroup>
-	    <RaisedButton label="Submit A Post" primary={true}/>
-	  </ToolbarGroup>
-	</Toolbar>
-    );
+const styles = theme => ({
+  flex: {
+    flex: 1
   }
+});
+
+function ReadablesHeader(props) {
+  const { classes } = props;
+  return (
+      <AppBar position="static">
+	<Toolbar>
+	  <Typography type="title" color="inherit" className={classes.flex}>
+	    READABLES
+	  </Typography>
+	  <Button raised>
+	    Submit A Post
+	  </Button>
+	</Toolbar>
+      </AppBar>      
+    );
 }
+
+export default withStyles(styles)(ReadablesHeader);

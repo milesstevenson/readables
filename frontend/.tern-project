@@ -9,7 +9,8 @@
     "node_modules/material-ui/*.js",
     "node_modules/redux/dist/*.js",
     "node_modules/react/*.js",
-    "node_modules/react-redux/dist/*.js"
+    "node_modules/react-redux/dist/*.js",
+    "node_modules/flexbox_react/dist/Flexbox.js"
   ],
   "plugins": {
     "complete_strings": {

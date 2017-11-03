@@ -18,9 +18,9 @@
   "devDependencies": {
     "eslint": "^4.8.0",
     "eslint-plugin-react": "^7.4.0",
-    "material-ui": "^0.19.4",
+    "flexbox-react": "^4.4.0",
+    "material-ui": "^1.0.0-beta.19",
     "prop-types": "^15.6.0",
-    "react-flexbox-grid": "^1.1.5",
     "react-tap-event-plugin": "^3.0.2",
     "typeface-roboto": "0.0.41"
   }

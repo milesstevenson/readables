@@ -1,27 +1,35 @@
 import React, {Component} from 'react';
 import Paper from 'material-ui/Paper';
+import IconButton from 'material-ui/IconButton';
+import { withStyles } from 'material-ui/styles';
+import Flexbox from 'flexbox-react';
 import PropTypes from 'prop-types';
 
-export default class ReadablesContentPreview extends Component {
-  render() {
-    const style = {
-      height: 100,
-      width: '80%',
-      marginBottom: 20
-    };
+const styles = theme => ({
+  paper: {
+    height: 100,
+    width: '80%',
+    marginBottom: 20
+  }
+});
+
+function ReadablesContentPreview(props) {
 
     /**
      TODO: Add upvote/downvote icons, number of comments, author
     */
-    
-    return (
-      <Paper style={style} zDepth={2}>
-	
-      </Paper>
-    );
-  }
+
+  const { classes } = props;
+  
+  return (
+    <Paper style={classes.paper}>
+      
+    </Paper>
+  );
 }
 
 ReadablesContentPreview.propTypes = {
   postDetails: PropTypes.object.isRequired
 };
+
+export default withStyles(styles)(ReadablesContentPreview);

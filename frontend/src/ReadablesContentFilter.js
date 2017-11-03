@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List, ListItem } from 'material-ui/List';
+import List, { ListItem } from 'material-ui/List';
 import { api } from './api.js';
 
 export default class ReadablesContentFilter extends Component {
@@ -23,9 +23,9 @@ export default class ReadablesContentFilter extends Component {
     const categories = this.state.categories.map((c) => {
       const { name } = c;
       return (
-	<ListItem key={name}
-	  primaryText={name}
-	  />
+	<ListItem key={name}>
+	  {name}
+	</ListItem>
       );
     });
     return categories;
