@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ReadablesContentArea.css';
-import ReadablesContentPreview from './ReadablesContentPreview.js';
+import ReadablesContentPreview from './preview/ReadablesContentPreview.js';
 import { api } from './api.js';
 
 export default class ReadablesContentArea extends Component {
