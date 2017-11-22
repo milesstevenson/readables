@@ -11,6 +11,11 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     marginTop: 20
+  },
+  filter: {
+    [theme.breakpoints.down('md')]: {
+      display: 'none'
+    }
   }
 });
 
@@ -24,10 +29,10 @@ class App extends Component {
 	<div>
 	  <ReadablesHeader/>
 	  <Grid container className={classes.root}>
-	    <Grid item xs={3}>
+	    <Grid item xs md className={classes.filter}>
 	      <ReadablesContentFilter/>
 	    </Grid>
-	    <Grid item xs={9}>
+	    <Grid item xs={12} md={9}>
 	      <ReadablesContentArea/>
 	    </Grid>
 	  </Grid>
