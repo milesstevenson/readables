@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import List, { ListItem } from 'material-ui/List';
+import { withStyles } from 'material-ui/styles';
+import Chip from 'material-ui/Chip';
 import { api } from './api.js';
 
-export default class ReadablesContentFilter extends Component {
+const styles = theme => ({
+  list: {
+    width: '50%',
+    background: theme.palette.background.paper
+  }
+});
+
+class ReadablesContentFilter extends Component {
   state = {
     categories: []
   };
@@ -31,11 +40,15 @@ export default class ReadablesContentFilter extends Component {
     return categories;
   }
   
-  render() {
+  render(props) {
+    const { classes } = this.props;
+    
     return (
-      <List>
+      <List className={classes.list}>
 	{ this.setupCategories() }
       </List>
     );
   }
 }
+
+export default withStyles(styles)(ReadablesContentFilter);

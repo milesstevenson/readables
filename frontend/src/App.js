@@ -8,6 +8,9 @@ import 'typeface-roboto';
 
 
 const styles = theme => ({
+  app: {
+    background: theme.palette.background.paper
+  },
   root: {
     flexGrow: 1,
     marginTop: 20
@@ -26,7 +29,7 @@ class App extends Component {
     const { classes } = this.props;
     
     return (
-	<div>
+      <div className={classes.app}>
 	  <ReadablesHeader/>
 	  <Grid container className={classes.root}>
 	    <Grid item xs md className={classes.filter}>
