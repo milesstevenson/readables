@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import List, { ListItem } from 'material-ui/List';
+import List, { ListItem, ListItemText } from 'material-ui/List';
 import { withStyles } from 'material-ui/styles';
 import Chip from 'material-ui/Chip';
 import { api } from './api.js';
 
 const styles = theme => ({
   list: {
-    width: '50%',
-    background: theme.palette.background.paper
+
   }
 });
 
@@ -32,8 +31,8 @@ class ReadablesContentFilter extends Component {
     const categories = this.state.categories.map((c) => {
       const { name } = c;
       return (
-	<ListItem key={name}>
-	  {name}
+	<ListItem key={name} button>
+	  <ListItemText inset primary={name}/>
 	</ListItem>
       );
     });
@@ -45,6 +44,9 @@ class ReadablesContentFilter extends Component {
     
     return (
       <List className={classes.list}>
+	<ListItem key="All" button>
+	  <ListItemText inset primary="All"/>
+	</ListItem>
 	{ this.setupCategories() }
       </List>
     );

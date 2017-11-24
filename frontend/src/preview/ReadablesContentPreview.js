@@ -8,6 +8,7 @@ import ExpandLessIcon from 'material-ui-icons/ExpandLess';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import ReadablesContentVoting from '../common/ReadablesContentVoting.js';
 import ReadablesContentPreviewDetails from './ReadablesContentPreviewDetails.js';
+import { api } from '../api.js';
 
 const styles = theme => ({
   paper: {
@@ -30,22 +31,33 @@ const styles = theme => ({
   }
 });
 
-function ReadablesContentPreview(props) {
-  const { classes } = props;
-  const { postDetails } = props;
+class  ReadablesContentPreview extends Component {
+
+  componentWillMount() {
+    const { postDetails } = this.props;
+    const comments = api.getComment(postDetails.id)
+	  .then((results) => {
+	    console.log(results);
+	  });
+  }
   
-  return (
-    <Paper className={classes.paper}>
-      <Grid container>
-	<Grid item xs={1} className={classes.voting}>
-	  <ReadablesContentVoting voteScore={postDetails.voteScore}/>
+  render() {
+    const { classes } = this.props;
+    const { postDetails } = this.props;
+    
+    return (
+      <Paper className={classes.paper}>
+	<Grid container>
+	  <Grid item xs={1} className={classes.voting}>
+	    <ReadablesContentVoting voteScore={postDetails.voteScore}/>
+	  </Grid>
+	  <Grid item xs={11}>
+	    <ReadablesContentPreviewDetails postDetails={postDetails}/>
+	  </Grid>
 	</Grid>
-	<Grid item xs={11}>
-	  <ReadablesContentPreviewDetails postDetails={postDetails}/>
-	</Grid>
-      </Grid>
       </Paper>
-  );
+    );
+  }
 }
 
 export default withStyles(styles)(ReadablesContentPreview);
