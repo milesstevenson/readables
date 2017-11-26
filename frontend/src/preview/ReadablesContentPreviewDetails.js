@@ -43,7 +43,10 @@ function ReadablesContentPreviewDetails(props) {
 	    <Chip label={`by ${postDetails.author}`}/>
 	  </Grid>
 	  <Grid item xs={2} className={classes.footerItem}>
-	    <Chip label={`${postComments.length} comments`}/>
+	    <Chip
+	      label={`${postComments.length} comments`}
+	      onClick={() => {}}
+	      />
 	  </Grid>
 	  <Grid item xs={2} className={classes.footerItem}>
 	    <Chip label={postDetails.category}/>
