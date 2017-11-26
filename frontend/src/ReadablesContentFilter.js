@@ -44,9 +44,6 @@ class ReadablesContentFilter extends Component {
     
     return (
       <List className={classes.list}>
-	<ListItem key="All" button>
-	  <ListItemText inset primary="All"/>
-	</ListItem>
 	{ this.setupCategories() }
       </List>
     );

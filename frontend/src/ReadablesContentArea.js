@@ -13,7 +13,6 @@ export default class ReadablesContentArea extends Component {
     api.getPosts()
       .then((results) => {
 	this.setState({ posts : results });
-	debugger;
       })
       .catch((err) => {
 	console.log(err);

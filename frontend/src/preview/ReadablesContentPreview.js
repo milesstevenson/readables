@@ -31,13 +31,17 @@ const styles = theme => ({
   }
 });
 
-class  ReadablesContentPreview extends Component {
+class ReadablesContentPreview extends Component {
 
+  state = {
+    comments: []
+  }
+  
   componentWillMount() {
     const { postDetails } = this.props;
-    const comments = api.getComment(postDetails.id)
+    const comments = api.getPostComments(postDetails.id)
 	  .then((results) => {
-	    console.log(results);
+	    this.setState({ comments: results });
 	  });
   }
   
@@ -52,7 +56,10 @@ class  ReadablesContentPreview extends Component {
 	    <ReadablesContentVoting voteScore={postDetails.voteScore}/>
 	  </Grid>
 	  <Grid item xs={11}>
-	    <ReadablesContentPreviewDetails postDetails={postDetails}/>
+	    <ReadablesContentPreviewDetails
+	      postDetails={postDetails}
+	      postComments={this.state.comments}
+	      />
 	  </Grid>
 	</Grid>
       </Paper>

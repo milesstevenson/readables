@@ -26,8 +26,7 @@ const styles = theme => ({
 });
 
 function ReadablesContentPreviewDetails(props) {
-  const { classes } = props;
-  const { postDetails } = props;
+  const { classes, postDetails, postComments } = props;
   
   return (
     <Grid container
@@ -43,12 +42,14 @@ function ReadablesContentPreviewDetails(props) {
 	  <Grid item xs={2} className={classes.footerItem}>
 	    <Chip label={`by ${postDetails.author}`}/>
 	  </Grid>
-	  <Grid item xs={2}>Me Too!</Grid>
+	  <Grid item xs={2} className={classes.footerItem}>
+	    <Chip label={`${postComments.length} comments`}/>
+	  </Grid>
 	  <Grid item xs={2} className={classes.footerItem}>
 	    <Chip label={postDetails.category}/>
 	  </Grid>
 	  <Grid item xs={3}>
-	    <IconButton color="cyan">
+	    <IconButton color="primary">
 	      <AddCircleIcon/>
 	    </IconButton>
 	    <IconButton color="accent">
@@ -62,7 +63,8 @@ function ReadablesContentPreviewDetails(props) {
 }
 
 ReadablesContentPreviewDetails.propTypes = {
-  postDetails: PropTypes.object.isRequired
+  postDetails: PropTypes.object.isRequired,
+  postComments: PropTypes.array.isRequired
 };
 
 export default withStyles(styles)(ReadablesContentPreviewDetails);
