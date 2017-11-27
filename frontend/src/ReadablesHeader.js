@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
 import Button from 'material-ui/Button';
+import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
+import ReadablesCreatePostDialog from './ReadablesCreatePostDialog.js';
 
 const styles = theme => ({
   flex: {
@@ -12,20 +13,37 @@ const styles = theme => ({
   }
 });
 
-function ReadablesHeader(props) {
-  const { classes } = props;
-  return (
+class ReadablesHeader extends Component {
+
+  state = {
+    open: false,
+    tag: ''
+  };
+  
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  }
+  
+  render() {
+    const { classes, fullScreen } = this.props;
+    
+    return (
       <AppBar position="static">
 	<Toolbar>
 	  <Typography type="title" color="inherit" className={classes.flex}>
 	    READABLES
 	  </Typography>
-	  <Button raised>
+	  <Button
+	    onClick={this.handleClickOpen}
+	    raised>
 	    Submit A Post
 	  </Button>
+	  <ReadablesCreatePostDialog dialogOpen={this.state.open}/>
 	</Toolbar>
       </AppBar>      
     );
+  }
 }
 
 export default withStyles(styles)(ReadablesHeader);
+
