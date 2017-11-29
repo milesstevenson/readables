@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import ReadablesHeader from './ReadablesHeader.js';
-import ReadablesContentArea from './ReadablesContentArea.js';
-import ReadablesContentFilter from './ReadablesContentFilter';
-import Grid from 'material-ui/Grid';
-import { withStyles } from 'material-ui/styles';
-import 'typeface-roboto';
-
+import React, { Component } from "react";
+import ReadablesHeader from "./ReadablesHeader.js";
+import ReadablesContentArea from "./ReadablesContentArea.js";
+import ReadablesContentFilter from "./ReadablesContentFilter";
+import Grid from "material-ui/Grid";
+import { withStyles } from "material-ui/styles";
+import "typeface-roboto";
 
 const styles = theme => ({
   root: {
@@ -13,33 +12,30 @@ const styles = theme => ({
     marginTop: 20
   },
   filter: {
-    [theme.breakpoints.down('md')]: {
-      display: 'none'
+    [theme.breakpoints.down("md")]: {
+      display: "none"
     }
   }
 });
 
 class App extends Component {
-
   render() {
-
     const { classes } = this.props;
-    
+
     return (
       <div>
-	  <ReadablesHeader/>
-	  <Grid container className={classes.root}>
-	    <Grid item xs md className={classes.filter}>
-	      <ReadablesContentFilter/>
-	    </Grid>
-	    <Grid item xs={12} md={9}>
-	      <ReadablesContentArea/>
-	    </Grid>
-	  </Grid>
-	</div>
+        <ReadablesHeader />
+        <Grid container className={classes.root}>
+          <Grid item xs md className={classes.filter}>
+            <ReadablesContentFilter />
+          </Grid>
+          <Grid item xs={12} md={9}>
+            <ReadablesContentArea />
+          </Grid>
+        </Grid>
+      </div>
     );
   }
 }
 
 export default withStyles(styles)(App);
-

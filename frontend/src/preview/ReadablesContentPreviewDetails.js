@@ -6,8 +6,7 @@ import Typography from 'material-ui/Typography';
 import Chip from 'material-ui/Chip';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
-import AddCircleIcon from 'material-ui-icons/AddCircle';
-import RemoveCircleIcon from 'material-ui-icons/RemoveCircle';
+import EditIcon from 'material-ui-icons/Edit';
 
 const styles = theme => ({
   contentPreview: {
@@ -53,10 +52,10 @@ function ReadablesContentPreviewDetails(props) {
 	  </Grid>
 	  <Grid item xs={3}>
 	    <IconButton color="primary">
-	      <AddCircleIcon/>
+	      <EditIcon/>
 	    </IconButton>
 	    <IconButton color="accent">
-	      <RemoveCircleIcon/>
+	      <DeleteIcon/>
 	    </IconButton>
 	  </Grid>
 	</Grid>
